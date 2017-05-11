@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='myApp'>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.min.js"></script>
+    <script src="people.js"></script>
+    <title>Member manage site</title>
+</head>
+<p>Search for member: <input ng-model="query"></p>
+<body ng-controller="PeopleController">
+	<table>
+    <tr ng-repeat="person in people | filter:query">
+      	<td><b>Name:</b> {{person.name}}</td>
+      	<td><b>Id:</b> {{person.id}}</td>
+      	<td><b>Gender:</b> {{person.gender}}</td>
+      	<td><b>Telephone:</b> {{person.telephone}}</td>
+      	
+    </tr>
+    </table>
+    <p><b>Add new member</b></p>
+    <form ng-submit="submit()">
+        <p>Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input ng-model="person.name"></p>
+        <p>Id: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input ng-model="person.id"></p>
+        <p>Gender: &nbsp;&nbsp;&nbsp;&nbsp;<input ng-model="person.gender"></p>
+        <p>Telephone: <input ng-model="person.telephone"></p>
+        <p><button>Add</button></p>
+    </form>
+
+</body>
+</html>
